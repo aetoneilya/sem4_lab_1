@@ -4,11 +4,9 @@
 
 #include "orderListInteract.hpp"
 
-class Client : IClient {
-    unsigned int orderNum = 0;
+class Client: public Entity {
 
    public:
     void createOrder(OrderList* orderList);
-    unsigned int getOrder() { return orderNum; }
     bool isOrderReady(OrderList* orderList);
 };

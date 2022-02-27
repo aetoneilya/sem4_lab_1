@@ -1,17 +1,26 @@
 #pragma once
 #include "orderList.hpp"
 
-class IEmploye {
+class Entity {
    protected:
     unsigned int orderNum = 0;
+    std::string name;
+    std::string job;
 
    public:
-    virtual void takeOrder(OrderList* orderList) = 0;
-    virtual void completeOrder(OrderList* orderList) = 0;
+    Entity() {
+        name = "noname";
+        job = "nojob";
+    }
+    std::string getName() { return name; };
+    std::string getJob() { return job; };
     unsigned int getOrderNum() { return orderNum; }
 };
 
-class IClient {
+class IEmploye {
+    virtual void completeOrder(OrderList* orderList) = 0;
+    virtual void takeOrder(OrderList* orderList) = 0;
+
    public:
-    virtual void createOrder(OrderList* OrderList) = 0;
+    virtual bool proceedOrder(OrderList* orderList) = 0;
 };

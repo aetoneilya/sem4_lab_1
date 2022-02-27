@@ -25,11 +25,12 @@ class OrderList {
 
    public:
     std::mutex mutex;
+
     OrderList() {}
     unsigned int addOrder();
     void setStateOrder(unsigned int orderNum, State newState);
     void deleteOrder(unsigned int orderNum);
-    Order findOrderByState(State findState);
-    Order findOrderByNum(unsigned int num);
+    unsigned int findOrderNumByState(State findState);
+    State findOrderStateByNum(unsigned int num);
     bool isEmpty() { return orderList.empty(); }
 };

@@ -18,7 +18,7 @@ void OrderList::deleteOrder(unsigned int orderNum) {
     }
 }
 
-Order OrderList::findOrderByState(State findState) {
+unsigned int OrderList::findOrderNumByState(State findState) {
     Order res(0);
     for (std::list<Order>::iterator order = orderList.begin(); order != orderList.end(); order++) {
         if (order->getState() == findState) {
@@ -26,10 +26,10 @@ Order OrderList::findOrderByState(State findState) {
             break;
         }
     }
-    return res;
+    return res.getNum();
 }
 
-Order OrderList::findOrderByNum(unsigned int num) {
+State OrderList::findOrderStateByNum(unsigned int num) {
     Order res(0);
     for (std::list<Order>::iterator order = orderList.begin(); order != orderList.end(); order++) {
         if (order->getNum() == num) {
@@ -37,5 +37,5 @@ Order OrderList::findOrderByNum(unsigned int num) {
             break;
         }
     }
-    return res;
+    return res.getState();
 }

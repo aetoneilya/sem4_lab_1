@@ -5,5 +5,5 @@ void Client::createOrder(OrderList* orderList) {
 }
 
 bool Client::isOrderReady(OrderList* orderList) {
-    return orderList->findOrderByNum(orderNum).getState() == DELIVERED;
+    return orderList->findOrderStateByNum(orderNum) == DELIVERED;
 }
