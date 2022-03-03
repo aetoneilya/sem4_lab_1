@@ -4,8 +4,7 @@
 
 #include "orderListInteract.hpp"
 
-class Client: public Entity {
-
+class Client : public Entity {
    public:
     void createOrder(OrderList* orderList);
     bool isOrderReady(OrderList* orderList);

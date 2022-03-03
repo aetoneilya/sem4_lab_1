@@ -13,9 +13,11 @@ void OrderList::setStateOrder(unsigned int orderNum, State newState) {
 }
 
 void OrderList::deleteOrder(unsigned int orderNum) {
+    mutex.lock();
     for (std::list<Order>::iterator order = orderList.begin(); order != orderList.end(); order++) {
         if (order->getNum() == orderNum) order = orderList.erase(order);
     }
+    mutex.unlock();
 }
 
 unsigned int OrderList::findOrderNumByState(State findState) {

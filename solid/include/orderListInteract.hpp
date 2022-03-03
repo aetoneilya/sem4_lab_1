@@ -10,8 +10,8 @@ class Entity {
    public:
     Entity() {
         name = "noname";
-        job = "nojob";
     }
+    
     std::string getName() { return name; };
     std::string getJob() { return job; };
     unsigned int getOrderNum() { return orderNum; }

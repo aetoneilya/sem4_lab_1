@@ -19,7 +19,6 @@ void Restoraunt::workingWaiter(OrderList* orderList, std::string name) {
     Waiter waiter(name);
     std::cout << "WAITER[" + name + "] start working" << std::endl;
     while (!orderList->isEmpty()) {
-        // std::cout << "WAITER[" + name + "] takes order" << std::endl;
         if (waiter.proceedOrder(orderList)) std::cout << "WAITER[" + name + "] delivired order" << std::endl;
 
         std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -41,6 +40,7 @@ void Restoraunt::startRestoraunt() {
     std::thread c1(workingClient, &orderList, "client1");
     std::thread c2(workingClient, &orderList, "client2");
     std::thread c3(workingClient, &orderList, "client3");
+    // std::thread c4(workingClient, &orderList, "client4");
     std::thread w1(workingWaiter, &orderList, "waiter1");
     std::thread w2(workingWaiter, &orderList, "waiter2");
     std::thread p1(workingCook, &orderList, "cook1");
@@ -48,6 +48,7 @@ void Restoraunt::startRestoraunt() {
     c1.join();
     c2.join();
     c3.join();
+    // c4.join();
     w1.join();
     w2.join();
     p1.join();

@@ -13,7 +13,6 @@ class Waiter : public IEmploye, public Entity {
    public:
     Waiter(std::string workerName) {
         name = workerName;
-        job = "Waiter";
     }
 
     bool proceedOrder(OrderList* orderList);
@@ -28,7 +27,6 @@ class Cook : public IEmploye, public Entity {
    public:
     Cook(std::string workerName) {
         name = workerName;
-        job = "Cook";
     }
 
     bool proceedOrder(OrderList* orderList);
